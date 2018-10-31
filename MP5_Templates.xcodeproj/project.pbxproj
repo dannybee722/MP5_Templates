@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20E72C702187D15E0041F307 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20E72C6F2187D15E0041F307 /* main.cpp */; };
+		20E72C782187D16F0041F307 /* stockType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20E72C762187D16F0041F307 /* stockType.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,10 @@
 /* Begin PBXFileReference section */
 		20E72C6C2187D15E0041F307 /* MP5_Templates */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MP5_Templates; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E72C6F2187D15E0041F307 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		20E72C762187D16F0041F307 /* stockType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stockType.cpp; sourceTree = "<group>"; };
+		20E72C772187D16F0041F307 /* stockType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stockType.hpp; sourceTree = "<group>"; };
+		20E72C792187D6150041F307 /* stockData.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = stockData.rtf; sourceTree = "<group>"; };
+		20E72C7A2187D6550041F307 /* stockData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stockData.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +62,11 @@
 		20E72C6E2187D15E0041F307 /* MP5_Templates */ = {
 			isa = PBXGroup;
 			children = (
+				20E72C7A2187D6550041F307 /* stockData.txt */,
+				20E72C792187D6150041F307 /* stockData.rtf */,
 				20E72C6F2187D15E0041F307 /* main.cpp */,
+				20E72C762187D16F0041F307 /* stockType.cpp */,
+				20E72C772187D16F0041F307 /* stockType.hpp */,
 			);
 			path = MP5_Templates;
 			sourceTree = "<group>";
@@ -119,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20E72C782187D16F0041F307 /* stockType.cpp in Sources */,
 				20E72C702187D15E0041F307 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

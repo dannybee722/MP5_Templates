@@ -7,9 +7,23 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include "stockType.hpp"
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    std::fstream file;
+    const std::string filePath = "/Users/dbraunst/Documents/XCode/CPS_271/MP5_Templates/MP5_Templates/stockData.txt";
+    
+    file.open(filePath);
+    
+    stockType stock;
+    
+    file >> stock;
+    
+    std::cout << stock;
+    stock.printGL();
+    
     return 0;
 }
