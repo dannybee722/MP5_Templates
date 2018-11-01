@@ -7,17 +7,39 @@
 //
 
 #include "stockType.hpp"
-void setStock(){
-    
-};
+//SETTERS FOR STOCKTYPE
+void stockType::setSymbol(std::string _sym){
+    this->symbol = _sym;
+}
+void stockType::setOpenPrice(double _open){
+    this->openPrice = _open;
+}
+void stockType::setClosePrice(double _close){
+    this->closePrice = _close;
+}
+void stockType::setTodayHigh(double _toHi){
+    this->todayHigh = _toHi;
+}
+void stockType::setTodayLow(double _toLo){
+    this->todayLow = _toLo;
+}
+void stockType::setPrevClose(double _prev){
+    this->todayHigh = _prev;
+}
+void stockType::setPercentGainOrLoss(double _gl){
+    this->percentGainOrLoss = _gl;
+}
+void stockType::setNumOfShares(int _shares){
+    this->numOfShares = _shares;
+}
 
 void printStock(){
     
-};
+}
 
 void showPrice(){
     
-};
+}
 
 //(TodayClose - YesaterdayClose) / YesterdayClose * 100;
 void stockType::printGL(){
@@ -26,7 +48,7 @@ void stockType::printGL(){
     std::cout << std::setprecision(2) << std::fixed << std::showpoint
     << std::setw(6) << std::right << GL << '%';
     
-};
+}
 
 
 

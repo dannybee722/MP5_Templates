@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     
     std::fstream file;
-    const std::string filePath = "/Users/dbraunst/Documents/XCode/CPS_271/MP5_Templates/MP5_Templates/stockData.txt";
+    const std::string filePath = "/Users/ayesha/Documents/GitHub/MP5_Templates/MP5_Templates/stockData.txt";
     
     file.open(filePath);
     

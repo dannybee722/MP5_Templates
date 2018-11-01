@@ -25,7 +25,15 @@ public:
     double percentGainOrLoss;
     int numOfShares;
     
-    void setStock();
+    //SETTERS FOR STOCKTYPE
+    void setSymbol(std::string _sym);
+    void setOpenPrice(double _open);
+    void setClosePrice(double _close);
+    void setTodayHigh(double _toHi);
+    void setTodayLow(double _toLo);
+    void setPrevClose(double _prev);
+    void setPercentGainOrLoss(double _gl);
+    void setNumOfShares(int _shares);
     
     void printStock();
     
