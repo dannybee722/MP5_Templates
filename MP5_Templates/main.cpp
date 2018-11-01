@@ -22,8 +22,6 @@ int main(int argc, const char * argv[]) {
     
     file >> stock;
     
-    std::cout << stock;
-    stock.printGL();
-    
+    stock.printStock(stock);
     return 0;
 }

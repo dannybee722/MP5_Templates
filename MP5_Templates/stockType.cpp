@@ -7,6 +7,7 @@
 //
 
 #include "stockType.hpp"
+
 //SETTERS FOR STOCKTYPE
 void stockType::setSymbol(std::string _sym){
     this->symbol = _sym;
@@ -33,11 +34,28 @@ void stockType::setNumOfShares(int _shares){
     this->numOfShares = _shares;
 }
 
-void printStock(){
-    
+
+//OutputFormatting Doubles - 7 spaces right adj ( xxx.xx)
+std::string stockType::outputDoubleFormat(double _dbl) const {
+    std::stringstream str;
+    str << std::setw(7) << std::right << std::fixed << std::setprecision(2) << std::noshowpoint << _dbl;
+    std::string s = str.str();
+    return s;
 }
 
-void showPrice(){
+//OutputFormatting Symbol - 4 spaces, left adj. (xxxx or xxx )
+std::string stockType::outputSymbolFormat(std::string _sym) const {
+    std::stringstream str;
+    str << std::setw(4) << std::left << _sym;
+    std::string s = str.str();
+    return s;
+}
+
+
+void stockType::printStock(stockType  _stock){
+    std::cout << _stock;
+    //_stock.printGL();
+    std::cout << std::endl;
     
 }
 
@@ -46,14 +64,15 @@ void stockType::printGL(){
     double GL = ((closePrice - prevClose) / prevClose * 100);
     
     std::cout << std::setprecision(2) << std::fixed << std::showpoint
-    << std::setw(6) << std::right << GL << '%';
+    << std::setw(7) << std::right << GL << '%';
     
 }
 
+//overload insertion and extraction operators for reading in/print stocks from a file
 
 
 
-//this will read in one line, broken by the delimiting character (\n)
+//this will read in one line from the
 std::istream & operator>> (std::istream &in, stockType &_stock){
      in >> _stock.symbol >> _stock.openPrice >> _stock.closePrice >>
      _stock.todayHigh >> _stock.todayLow >> _stock.prevClose
@@ -65,17 +84,19 @@ std::istream & operator>> (std::istream &in, stockType &_stock){
 //this will print all data for the OBJECT
 std::ostream& operator << (std::ostream &out, const stockType &_stock){
  
-    out << std::setw(5) << std::left << _stock.symbol;
-    out << std::setprecision(2) << std::fixed << std::showpoint << std::setw(7) << std::left << _stock.openPrice;
-    out << std::setw(7) << std::left <<  _stock.closePrice;
-    out << std::setw(7) << std::left <<  _stock.todayHigh;
-    out << std::setw(7) << std::left <<  _stock.todayLow;
-    out << std::setw(15) << std::right <<  _stock.prevClose;
-    out << std::setw(8) << std::right <<  _stock.numOfShares;
+    out << _stock.outputSymbolFormat(_stock.symbol)
+        << _stock.outputDoubleFormat(_stock.openPrice)
+        << _stock.outputDoubleFormat(_stock.closePrice)
+        << _stock.outputDoubleFormat(_stock.todayHigh)
+        << _stock.outputDoubleFormat(_stock.todayLow)
+        << _stock.outputDoubleFormat(_stock.prevClose);
+    
+    out << std::setw(6) << std::right <<  _stock.numOfShares;
     
     return out;
  }
 
+//OVERLOAD RELATIONAL OPERATORS
 /*
  stockType operator >(){
  

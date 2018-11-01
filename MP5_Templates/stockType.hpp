@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string>
+#include <sstream>
 #include <iostream>
 #include <iomanip>
 
@@ -35,12 +36,15 @@ public:
     void setPercentGainOrLoss(double _gl);
     void setNumOfShares(int _shares);
     
-    void printStock();
+    std::string outputDoubleFormat(double _dbl) const;
+    std::string outputSymbolFormat(std::string _sym)  const;
     
-    void showPrice();
+    void printStock(stockType _stock);
+    
     
     void printGL(); //(TodayClose - YesaterdayClose) / YesterdayClose * 100;
     
+    //overload insertion and extraction operators for reading in/print stocks from a file
     friend std::istream& operator >> (std::istream & in, stockType &stock);
     friend std::ostream& operator << (std::ostream & out, const stockType &stock);
 };
