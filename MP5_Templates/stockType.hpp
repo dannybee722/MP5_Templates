@@ -47,6 +47,12 @@ public:
     //overload insertion and extraction operators for reading in/print stocks from a file
     friend std::istream& operator >> (std::istream & in, stockType &stock);
     friend std::ostream& operator << (std::ostream & out, const stockType &stock);
+    
+    //Overload Relational Operators to compare symbols
+    bool operator <(const stockType &s);
+    bool operator >(const stockType &s);
+    bool operator ==(const stockType &s);
+    bool operator !=(const stockType &s);
 };
 
 #endif /* stockType_hpp */

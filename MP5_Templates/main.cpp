@@ -19,9 +19,12 @@ int main(int argc, const char * argv[]) {
     file.open(filePath);
     
     stockType stock;
+    stockType stock2;
     
     file >> stock;
     
+    stock2.setSymbol("MTET");
     stock.printStock(stock);
+    
     return 0;
 }

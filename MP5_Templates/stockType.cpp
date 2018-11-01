@@ -97,11 +97,50 @@ std::ostream& operator << (std::ostream &out, const stockType &_stock){
  }
 
 //OVERLOAD RELATIONAL OPERATORS
-/*
- stockType operator >(){
- 
+
+//using 'less than' to signify being earlier 
+bool stockType::operator <(const stockType &s){
+    for (int i = 0; i < 4; i++){
+        if (symbol.at(i) < s.symbol.at(i)){
+            return true;
+        }
+        else{}
+    }
+    return false;
  }
- 
+
+ bool stockType::operator >(const stockType &s){
+    for (int i = 0; i < 4; i++){
+        if (symbol.at(i) > s.symbol.at(i)){
+            return true;
+        }
+        else{}
+    }
+    return false;
+ }
+
+//check if symbols are idential
+ bool stockType::operator ==(const stockType &s){
+     for (int i = 0; i < 4; i++){
+         if (symbol.at(i) != s.symbol.at(i)){
+             return false;
+         }
+         else{}
+     }
+     return true;
+ }
+
+//check if symbols are not identical
+bool stockType::operator !=(const stockType &s){
+    for (int i = 0; i < 4; i++){
+        if (symbol.at(i) == s.symbol.at(i)){
+            return false;
+        }
+        else{}
+    }
+    return true;
+}
+/*
  stockType operator < (){
  }
  
