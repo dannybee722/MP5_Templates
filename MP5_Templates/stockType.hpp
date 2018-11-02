@@ -17,6 +17,11 @@
 
 class stockType{
 public:
+    
+    stockType();
+    ~stockType();
+    
+    //member variables
     std::string symbol;
     double openPrice;
     double closePrice;
@@ -36,12 +41,14 @@ public:
     void setPercentGainOrLoss(double _gl);
     void setNumOfShares(int _shares);
     
+    //formatting functions
     std::string outputDoubleFormat(double _dbl) const;
     std::string outputSymbolFormat(std::string _sym)  const;
     
+    //master print function
     void printStock(stockType _stock);
     
-    
+    //calculate and print GL balance, used in printStock
     void printGL(); //(TodayClose - YesaterdayClose) / YesterdayClose * 100;
     
     //overload insertion and extraction operators for reading in/print stocks from a file

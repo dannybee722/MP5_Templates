@@ -8,6 +8,14 @@
 
 #include "stockType.hpp"
 
+//default constructor/destructor
+stockType::stockType(){
+    
+}
+stockType::~stockType(){
+    
+}
+
 //SETTERS FOR STOCKTYPE
 void stockType::setSymbol(std::string _sym){
     this->symbol = _sym;
@@ -52,9 +60,10 @@ std::string stockType::outputSymbolFormat(std::string _sym) const {
 }
 
 
+//print out the full stock information using the extraction operator, GL balance, and begin a new line
 void stockType::printStock(stockType  _stock){
     std::cout << _stock;
-    //_stock.printGL();
+    _stock.printGL();
     std::cout << std::endl;
     
 }
@@ -68,11 +77,7 @@ void stockType::printGL(){
     
 }
 
-//overload insertion and extraction operators for reading in/print stocks from a file
-
-
-
-//this will read in one line from the
+//this will read in one line from the text and fill in all data in stockType
 std::istream & operator>> (std::istream &in, stockType &_stock){
      in >> _stock.symbol >> _stock.openPrice >> _stock.closePrice >>
      _stock.todayHigh >> _stock.todayLow >> _stock.prevClose
@@ -89,6 +94,7 @@ std::ostream& operator << (std::ostream &out, const stockType &_stock){
         << _stock.outputDoubleFormat(_stock.closePrice)
         << _stock.outputDoubleFormat(_stock.todayHigh)
         << _stock.outputDoubleFormat(_stock.todayLow)
+        << std::setw(10) << " "
         << _stock.outputDoubleFormat(_stock.prevClose);
     
     out << std::setw(6) << std::right <<  _stock.numOfShares;
@@ -96,9 +102,11 @@ std::ostream& operator << (std::ostream &out, const stockType &_stock){
     return out;
  }
 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //OVERLOAD RELATIONAL OPERATORS
 
-//using 'less than' to signify being earlier 
+//using 'less than' to signify being earlier in the alphabet (b < c) returns true;
 bool stockType::operator <(const stockType &s){
     for (int i = 0; i < 4; i++){
         if (symbol.at(i) < s.symbol.at(i)){
@@ -109,8 +117,9 @@ bool stockType::operator <(const stockType &s){
     return false;
  }
 
+//using 'greatern than' to signify being later in the alphabet (b > c) returns false;
  bool stockType::operator >(const stockType &s){
-    for (int i = 0; i < 4; i++){
+    for (int i = 0; i < 2; i++){
         if (symbol.at(i) > s.symbol.at(i)){
             return true;
         }
@@ -140,8 +149,3 @@ bool stockType::operator !=(const stockType &s){
     }
     return true;
 }
-/*
- stockType operator < (){
- }
- 
- */
